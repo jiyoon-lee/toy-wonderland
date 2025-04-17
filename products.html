@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 목록 - 장난감 원더랜드</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/products.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/user.js" defer></script>
+</head>
+<body>
+    <div class="confetti-container"></div>
+    
+    <!-- 헤더 -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">🧸</div>
+            <h1 class="site-title">장난감 원더랜드</h1>
+        </div>
+        
+        <nav>
+            <ul class="main-nav">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="products.html" class="active">상품</a></li>
+                <li><a href="cart.html">장바구니 <span class="cart-count">0</span></a></li>
+                <li><a href="login.html" id="login-link">로그인</a></li>
+                <li><a href="account.html" id="account-link" style="display: none;">내 계정</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 상품 페이지 메인 컨텐츠 -->
+    <main class="products-page">
+        <h1 class="category-title">모든 상품</h1>
+        
+        <!-- 검색 및 필터 -->
+        <div class="search-container">
+            <form id="search-form" action="products.html" method="get">
+                <input type="text" name="search" class="search-input" placeholder="찾고 싶은 상품을 검색하세요...">
+                <button type="submit" class="search-button">검색</button>
+            </form>
+        </div>
+        
+        <div class="filters-container">
+            <div class="categories-filter">
+                <h3>카테고리</h3>
+                <ul>
+                    <li><a href="products.html">전체</a></li>
+                    <li><a href="products.html?category=plush">부드러운 인형</a></li>
+                    <li><a href="products.html?category=action">액션 피규어</a></li>
+                    <li><a href="products.html?category=educational">교육용 장난감</a></li>
+                    <li><a href="products.html?category=creative">창의력 키트</a></li>
+                </ul>
+            </div>
+            
+            <div class="sort-options">
+                <label for="sort-select">정렬:</label>
+                <select id="sort-select" class="sort-select">
+                    <option value="featured">추천순</option>
+                    <option value="price-low">가격 낮은순</option>
+                    <option value="price-high">가격 높은순</option>
+                    <option value="name">이름순</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- 상품 그리드 -->
+        <div class="products-grid">
+            <!-- 제품 카드들은 JavaScript로 동적 생성 -->
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>장난감 원더랜드</h3>
+                <p>아이들과 수집가를 위한 마법 같은 장난감 쇼핑몰</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">FB</a>
+                    <a href="#" class="social-icon">IG</a>
+                    <a href="#" class="social-icon">TW</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>바로가기</h3>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="products.html">상품</a></li>
+                    <li><a href="cart.html">장바구니</a></li>
+                    <li><a href="account.html">내 계정</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>고객 서비스</h3>
+                <ul>
+                    <li><a href="#">배송 정보</a></li>
+                    <li><a href="#">환불 정책</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">문의하기</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 장난감 원더랜드. 모든 권리 보유.</p>
+        </div>
+    </footer>
+
+    <!-- 커서 팔로워 -->
+    <div class="cursor-follower"></div>
+    
+    <script>
+        // 정렬 옵션 이벤트 리스너
+        document.getElementById('sort-select').addEventListener('change', function() {
+            const sortOption = this.value;
+            sortProducts(sortOption);
+        });
+        
+        // 상품 정렬 함수
+        function sortProducts(option) {
+            const productsGrid = document.querySelector('.products-grid');
+            const products = Array.from(productsGrid.children);
+            
+            switch (option) {
+                case 'price-low':
+                    products.sort((a, b) => {
+                        const priceA = parseInt(a.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
+                        const priceB = parseInt(b.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
+                        return priceA - priceB;
+                    });
+                    break;
+                case 'price-high':
+                    products.sort((a, b) => {
+                        const priceA = parseInt(a.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
+                        const priceB = parseInt(b.querySelector('.product-price').textContent.replace(/[^\d]/g, ''));
+                        return priceB - priceA;
+                    });
+                    break;
+                case 'name':
+                    products.sort((a, b) => {
+                        const nameA = a.querySelector('.product-title').textContent;
+                        const nameB = b.querySelector('.product-title').textContent;
+                        return nameA.localeCompare(nameB);
+                    });
+                    break;
+                default:
+                    // 추천순 (기본 정렬)
+                    return;
+            }
+            
+            // 정렬된 상품들 다시 화면에 표시
+            products.forEach(product => {
+                productsGrid.appendChild(product);
+            });
+        }
+    </script>
+</body>
+</html>

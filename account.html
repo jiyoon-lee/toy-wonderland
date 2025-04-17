@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 계정 - 장난감 원더랜드</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/products.js" defer></script>
+    <script src="js/user.js" defer></script>
+</head>
+<body>
+    <div class="confetti-container"></div>
+    
+    <!-- 헤더 -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">🧸</div>
+            <h1 class="site-title">장난감 원더랜드</h1>
+        </div>
+        
+        <nav>
+            <ul class="main-nav">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="products.html">상품</a></li>
+                <li><a href="cart.html">장바구니 <span class="cart-count">0</span></a></li>
+                <li><a href="login.html" id="login-link">로그인</a></li>
+                <li><a href="account.html" class="active" id="account-link">내 계정</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 계정 정보 페이지 -->
+    <main>
+        <div class="account-container">
+            <!-- 사이드바 메뉴 -->
+            <aside class="account-sidebar">
+                <h2>내 계정</h2>
+                <ul class="account-menu">
+                    <li><a href="#" class="active" data-section="dashboard">대시보드</a></li>
+                    <li><a href="#" data-section="orders">주문 내역</a></li>
+                    <li><a href="#" data-section="favorites">관심 상품</a></li>
+                    <li><a href="#" data-section="profile">개인정보 관리</a></li>
+                    <li><a href="#" data-section="addresses">배송지 관리</a></li>
+                    <li><a href="#" class="logout-button">로그아웃</a></li>
+                </ul>
+            </aside>
+            
+            <!-- 계정 정보 콘텐츠 -->
+            <div class="account-content">
+                <!-- 대시보드 섹션 -->
+                <section id="dashboard" class="account-section active">
+                    <h1>안녕하세요, <span class="user-name">사용자</span>님!</h1>
+                    <p class="welcome-message">장난감 원더랜드에 오신 것을 환영합니다. 개인 계정 페이지에서 주문 내역 확인, 개인정보 관리, 관심 상품 확인 등 다양한 서비스를 이용하실 수 있습니다.</p>
+                    
+                    <div class="account-stats">
+                        <div class="stat-card">
+                            <h3>0</h3>
+                            <p>진행 중인 주문</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>0</h3>
+                            <p>완료된 주문</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>0</h3>
+                            <p>관심 상품</p>
+                        </div>
+                    </div>
+                    
+                    <div class="recent-orders">
+                        <h2>최근 주문 내역</h2>
+                        <p>아직 주문 내역이 없습니다.</p>
+                    </div>
+                </section>
+                
+                <!-- 주문 내역 섹션 -->
+                <section id="orders" class="account-section">
+                    <h1>주문 내역</h1>
+                    <p>아직 주문 내역이 없습니다.</p>
+                </section>
+                
+                <!-- 관심 상품 섹션 -->
+                <section id="favorites" class="account-section">
+                    <h1>관심 상품</h1>
+                    <div class="favorites-container">
+                        <!-- 관심 상품 목록은 JavaScript로 동적 생성 -->
+                    </div>
+                </section>
+                
+                <!-- 개인정보 관리 섹션 -->
+                <section id="profile" class="account-section">
+                    <h1>개인정보 관리</h1>
+                    
+                    <form id="profile-form" class="profile-form">
+                        <div class="form-group">
+                            <label for="profile-name">이름</label>
+                            <input type="text" id="profile-name" name="name" value="">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="profile-email">이메일</label>
+                            <input type="email" id="profile-email" name="email" value="" class="user-email" readonly>
+                            <small>이메일은 변경할 수 없습니다.</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="profile-phone">전화번호</label>
+                            <input type="tel" id="profile-phone" name="phone" value="">
+                        </div>
+                        
+                        <h2>비밀번호 변경</h2>
+                        
+                        <div class="form-group">
+                            <label for="current-password">현재 비밀번호</label>
+                            <input type="password" id="current-password" name="current-password">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="new-password">새 비밀번호</label>
+                            <input type="password" id="new-password" name="new-password">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirm-new-password">새 비밀번호 확인</label>
+                            <input type="password" id="confirm-new-password" name="confirm-new-password">
+                        </div>
+                        
+                        <button type="submit" class="cta-button">변경사항 저장</button>
+                    </form>
+                </section>
+                
+                <!-- 배송지 관리 섹션 -->
+                <section id="addresses" class="account-section">
+                    <h1>배송지 관리</h1>
+                    
+                    <div class="addresses-container">
+                        <div class="address-card add-address">
+                            <div class="add-address-icon">+</div>
+                            <p>새 배송지 추가</p>
+                        </div>
+                    </div>
+                    
+                    <div class="address-form-container" style="display: none;">
+                        <h2>새 배송지 추가</h2>
+                        
+                        <form id="address-form" class="address-form">
+                            <div class="form-group">
+                                <label for="address-name">배송지명</label>
+                                <input type="text" id="address-name" name="address-name" placeholder="예: 집, 회사" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="recipient">받는 사람</label>
+                                <input type="text" id="recipient" name="recipient" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">전화번호</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="zipcode">우편번호</label>
+                                <div class="zipcode-search">
+                                    <input type="text" id="zipcode" name="zipcode" readonly required>
+                                    <button type="button" class="search-zipcode-btn">우편번호 찾기</button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address1">주소</label>
+                                <input type="text" id="address1" name="address1" readonly required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address2">상세주소</label>
+                                <input type="text" id="address2" name="address2" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="checkbox" id="default-address" name="default-address">
+                                <label for="default-address">기본 배송지로 설정</label>
+                            </div>
+                            
+                            <div class="address-form-actions">
+                                <button type="button" class="cancel-btn">취소</button>
+                                <button type="submit" class="cta-button">저장</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>장난감 원더랜드</h3>
+                <p>아이들과 수집가를 위한 마법 같은 장난감 쇼핑몰</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">FB</a>
+                    <a href="#" class="social-icon">IG</a>
+                    <a href="#" class="social-icon">TW</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>바로가기</h3>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="products.html">상품</a></li>
+                    <li><a href="cart.html">장바구니</a></li>
+                    <li><a href="account.html">내 계정</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>고객 서비스</h3>
+                <ul>
+                    <li><a href="#">배송 정보</a></li>
+                    <li><a href="#">환불 정책</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">문의하기</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 장난감 원더랜드. 모든 권리 보유.</p>
+        </div>
+    </footer>
+
+    <!-- 여러 애니메이션 요소들 -->
+    <div class="cursor-follower"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 로그인 확인
+            if (!isLoggedIn()) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // 계정 메뉴 탭 기능
+            const menuLinks = document.querySelectorAll('.account-menu a[data-section]');
+            const sections = document.querySelectorAll('.account-section');
+            
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetSection = this.dataset.section;
+                    
+                    // 활성 탭 변경
+                    menuLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 섹션 표시/숨김
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === targetSection) {
+                            section.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // 새 배송지 추가 폼 토글
+            const addAddressBtn = document.querySelector('.add-address');
+            const addressFormContainer = document.querySelector('.address-form-container');
+            const cancelBtn = document.querySelector('.cancel-btn');
+            
+            if (addAddressBtn && addressFormContainer && cancelBtn) {
+                addAddressBtn.addEventListener('click', function() {
+                    addressFormContainer.style.display = 'block';
+                    this.style.display = 'none';
+                });
+                
+                cancelBtn.addEventListener('click', function() {
+                    addressFormContainer.style.display = 'none';
+                    addAddressBtn.style.display = 'block';
+                    document.getElementById('address-form').reset();
+                });
+            }
+            
+            // 우편번호 찾기 버튼 (실제로는 서드파티 API 연동 필요)
+            const zipCodeBtn = document.querySelector('.search-zipcode-btn');
+            if (zipCodeBtn) {
+                zipCodeBtn.addEventListener('click', function() {
+                    alert('우편번호 찾기 기능은 준비 중입니다.');
+                    // 테스트용
+                    document.getElementById('zipcode').value = '06234';
+                    document.getElementById('address1').value = '서울시 강남구 테헤란로 123';
+                });
+            }
+            
+            // 프로필 폼 제출
+            const profileForm = document.getElementById('profile-form');
+            if (profileForm) {
+                profileForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // 비밀번호 변경 유효성 검사
+                    const newPass = document.getElementById('new-password').value;
+                    const confirmPass = document.getElementById('confirm-new-password').value;
+                    
+                    if (newPass && newPass !== confirmPass) {
+                        alert('새 비밀번호가 일치하지 않습니다.');
+                        return;
+                    }
+                    
+                    // 프로필 업데이트 성공 알림
+                    alert('프로필 정보가 업데이트되었습니다.');
+                    
+                    // 비밀번호 필드 초기화
+                    document.getElementById('current-password').value = '';
+                    document.getElementById('new-password').value = '';
+                    document.getElementById('confirm-new-password').value = '';
+                });
+            }
+            
+            // 배송지 폼 제출
+            const addressForm = document.getElementById('address-form');
+            if (addressForm) {
+                addressForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // 배송지 추가 성공 알림
+                    alert('새 배송지가 추가되었습니다.');
+                    
+                    // 폼 초기화 및 숨김
+                    this.reset();
+                    addressFormContainer.style.display = 'none';
+                    addAddressBtn.style.display = 'block';
+                    
+                    // 새 배송지 카드 추가 (실제로는 서버에서 데이터 가져와야 함)
+                    const addressesContainer = document.querySelector('.addresses-container');
+                    const addressName = document.getElementById('address-name').value || '기본 배송지';
+                    const recipient = document.getElementById('recipient').value;
+                    const address = document.getElementById('address1').value + ' ' + document.getElementById('address2').value;
+                    
+                    const newAddressCard = document.createElement('div');
+                    newAddressCard.className = 'address-card';
+                    newAddressCard.innerHTML = `
+                        <h3>${addressName}</h3>
+                        <p class="recipient">${recipient}</p>
+                        <p class="address">${address}</p>
+                        <div class="address-actions">
+                            <button class="edit-address">수정</button>
+                            <button class="delete-address">삭제</button>
+                        </div>
+                    `;
+                    
+                    addressesContainer.insertBefore(newAddressCard, addAddressBtn);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

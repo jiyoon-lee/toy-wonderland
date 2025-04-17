@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 - 장난감 원더랜드</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/user.js" defer></script>
+</head>
+<body>
+    <div class="confetti-container"></div>
+    
+    <!-- 헤더 -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">🧸</div>
+            <h1 class="site-title">장난감 원더랜드</h1>
+        </div>
+        
+        <nav>
+            <ul class="main-nav">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="products.html">상품</a></li>
+                <li><a href="cart.html">장바구니 <span class="cart-count">0</span></a></li>
+                <li><a href="login.html" id="login-link">로그인</a></li>
+                <li><a href="account.html" id="account-link" style="display: none;">내 계정</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 회원가입 폼 -->
+    <main>
+        <div class="auth-container fade-in">
+            <h1>회원가입</h1>
+            
+            <div class="error-message" style="display: none; color: #ff6b6b; margin-bottom: 15px;"></div>
+            
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="name">이름</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" name="password" required minlength="8">
+                    <small>비밀번호는 8자 이상이어야 합니다.</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm-password">비밀번호 확인</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">주소</label>
+                    <input type="text" id="address" name="address">
+                </div>
+                
+                <div class="form-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">이용약관 및 개인정보 처리방침에 동의합니다.</label>
+                </div>
+                
+                <button type="submit" class="cta-button auth-button">회원가입</button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>이미 계정이 있으신가요? <a href="login.html">로그인</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>장난감 원더랜드</h3>
+                <p>아이들과 수집가를 위한 마법 같은 장난감 쇼핑몰</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">FB</a>
+                    <a href="#" class="social-icon">IG</a>
+                    <a href="#" class="social-icon">TW</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>바로가기</h3>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="products.html">상품</a></li>
+                    <li><a href="cart.html">장바구니</a></li>
+                    <li><a href="account.html">내 계정</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>고객 서비스</h3>
+                <ul>
+                    <li><a href="#">배송 정보</a></li>
+                    <li><a href="#">환불 정책</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">문의하기</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 장난감 원더랜드. 모든 권리 보유.</p>
+        </div>
+    </footer>
+
+    <!-- 여러 애니메이션 요소들 -->
+    <div class="cursor-follower"></div>
+    
+    <script>
+        // 패스워드 일치 확인
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('confirm-password');
+        
+        function validatePassword() {
+            if (password.value !== confirmPassword.value) {
+                confirmPassword.setCustomValidity('비밀번호가 일치하지 않습니다.');
+            } else {
+                confirmPassword.setCustomValidity('');
+            }
+        }
+        
+        password.addEventListener('change', validatePassword);
+        confirmPassword.addEventListener('keyup', validatePassword);
+        
+        // 폼 제출 시 이벤트
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 폼 데이터 수집
+            const userData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                confirmPassword: document.getElementById('confirm-password').value,
+                address: document.getElementById('address').value
+            };
+            
+            // 회원가입 함수 호출 (user.js에 정의됨)
+            const result = register(userData);
+            
+            if (result.success) {
+                // 성공 시 알림 후 로그인 페이지로 이동
+                alert(result.message);
+                window.location.href = 'login.html';
+            } else {
+                // 실패 시 에러 메시지 표시
+                const errorMsg = document.querySelector('.error-message');
+                errorMsg.textContent = result.message;
+                errorMsg.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

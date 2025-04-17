@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장난감 원더랜드 - 마법같은 장난감 세상</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/products.js" defer></script>
+</head>
+<body>
+    <div class="confetti-container"></div>
+    
+    <!-- 헤더 -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">🧸</div>
+            <h1 class="site-title">장난감 원더랜드</h1>
+        </div>
+        
+        <nav>
+            <ul class="main-nav">
+                <li><a href="index.html" class="active">홈</a></li>
+                <li><a href="products.html">상품</a></li>
+                <li><a href="cart.html">장바구니 <span class="cart-count">0</span></a></li>
+                <li><a href="login.html" id="login-link">로그인</a></li>
+                <li><a href="account.html" id="account-link" style="display: none;">내 계정</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="rainbow-text">마법 같은 장난감의 세계에 오신 것을 환영합니다!</h2>
+            <p>아이들과 수집가를 위한 특별한 판타지 장난감 쇼핑몰</p>
+            <a href="products.html" class="cta-button bounce">지금 탐험하기</a>
+        </div>
+        
+        <div class="floating-elements">
+            <div class="balloon" style="--delay: 0s; --left: 10%"></div>
+            <div class="balloon" style="--delay: 1.2s; --left: 25%"></div>
+            <div class="balloon" style="--delay: 0.5s; --left: 40%"></div>
+            <div class="balloon" style="--delay: 2s; --left: 65%"></div>
+            <div class="balloon" style="--delay: 1s; --left: 80%"></div>
+            <div class="balloon" style="--delay: 1.5s; --left: 90%"></div>
+        </div>
+    </section>
+
+    <!-- 카테고리 섹션 -->
+    <section class="categories">
+        <h2>마법 같은 카테고리</h2>
+        <div class="category-container">
+            <div class="category-card" data-category="plush">
+                <div class="category-icon">🧸</div>
+                <h3>부드러운 인형</h3>
+                <p>안아주고 싶은 친구들</p>
+            </div>
+            <div class="category-card" data-category="action">
+                <div class="category-icon">🦸</div>
+                <h3>액션 피규어</h3>
+                <p>모험을 떠나는 히어로들</p>
+            </div>
+            <div class="category-card" data-category="educational">
+                <div class="category-icon">📚</div>
+                <h3>교육용 장난감</h3>
+                <p>놀면서 배우는 마법</p>
+            </div>
+            <div class="category-card" data-category="creative">
+                <div class="category-icon">🎨</div>
+                <h3>창의력 키트</h3>
+                <p>상상력을 펼쳐보세요</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 추천 상품 섹션 -->
+    <section class="featured-products">
+        <h2>마법사의 추천 상품</h2>
+        <div class="product-carousel">
+            <div class="product-container">
+                <!-- 제품 카드들은 JavaScript로 동적 생성 -->
+            </div>
+            <button class="carousel-nav prev">◀</button>
+            <button class="carousel-nav next">▶</button>
+        </div>
+    </section>
+
+    <!-- 매직 스팟 섹션 -->
+    <section class="magic-spot">
+        <h2>오늘의 마법 상품!</h2>
+        <div class="magic-product" id="magic-product">
+            <!-- 매직 상품은 JavaScript로 동적 생성 -->
+        </div>
+        <div class="magic-sparkles"></div>
+    </section>
+
+    <!-- 뉴스레터 가입 -->
+    <section class="newsletter">
+        <h2>마법의 소식 구독하기</h2>
+        <p>특별한 할인과 신상품 소식을 가장 먼저 받아보세요!</p>
+        <form id="newsletter-form">
+            <input type="email" placeholder="이메일 주소" required>
+            <button type="submit" class="cta-button">구독하기</button>
+        </form>
+        <div class="subscription-message"></div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>장난감 원더랜드</h3>
+                <p>아이들과 수집가를 위한 마법 같은 장난감 쇼핑몰</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">FB</a>
+                    <a href="#" class="social-icon">IG</a>
+                    <a href="#" class="social-icon">TW</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>바로가기</h3>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="products.html">상품</a></li>
+                    <li><a href="cart.html">장바구니</a></li>
+                    <li><a href="account.html">내 계정</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>고객 서비스</h3>
+                <ul>
+                    <li><a href="#">배송 정보</a></li>
+                    <li><a href="#">환불 정책</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">문의하기</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 장난감 원더랜드. 모든 권리 보유.</p>
+        </div>
+    </footer>
+
+    <!-- 여러 애니메이션 요소들 -->
+    <div class="cursor-follower"></div>
+</body>
+</html>

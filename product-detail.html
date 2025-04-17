@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 상세 정보 - 장난감 원더랜드</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/products.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/user.js" defer></script>
+</head>
+<body>
+    <div class="confetti-container"></div>
+    
+    <!-- 헤더 -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">🧸</div>
+            <h1 class="site-title">장난감 원더랜드</h1>
+        </div>
+        
+        <nav>
+            <ul class="main-nav">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="products.html" class="active">상품</a></li>
+                <li><a href="cart.html">장바구니 <span class="cart-count">0</span></a></li>
+                <li><a href="login.html" id="login-link">로그인</a></li>
+                <li><a href="account.html" id="account-link" style="display: none;">내 계정</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 상품 상세 정보 -->
+    <main>
+        <div class="product-detail">
+            <!-- 상품 정보는 JavaScript로 동적 생성 -->
+        </div>
+        
+        <!-- 관련 상품 추천 -->
+        <section class="related-products">
+            <h2>함께 볼만한 상품</h2>
+            <div class="product-carousel">
+                <div class="product-container">
+                    <!-- 관련 상품들은 JavaScript로 동적 생성 -->
+                </div>
+                <button class="carousel-nav prev">◀</button>
+                <button class="carousel-nav next">▶</button>
+            </div>
+        </section>
+        
+        <!-- 상품 리뷰 섹션 -->
+        <section class="product-reviews">
+            <h2>고객 리뷰</h2>
+            <div class="reviews-container">
+                <div class="review">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <span class="reviewer-name">김민지</span>
+                            <span class="review-date">2025.03.15</span>
+                        </div>
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    <p class="review-text">아이가 너무 좋아해요! 색상도 선명하고 품질도 좋습니다. 다음에 다른 제품도 구매할 예정이에요.</p>
+                </div>
+                
+                <div class="review">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <span class="reviewer-name">이준호</span>
+                            <span class="review-date">2025.03.10</span>
+                        </div>
+                        <div class="review-rating">★★★★☆</div>
+                    </div>
+                    <p class="review-text">전체적으로 만족스럽습니다. 배송도 빠르고 제품도 설명과 동일해요. 한 가지 아쉬운 점은 포장이 조금 부실했어요.</p>
+                </div>
+                
+                <div class="review">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <span class="reviewer-name">박서연</span>
+                            <span class="review-date">2025.03.05</span>
+                        </div>
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    <p class="review-text">생각보다 훨씬 좋아요! 아이가 하루종일 가지고 놀아요. 내구성도 좋고 안전하게 제작된 것 같아 안심이 됩니다.</p>
+                </div>
+            </div>
+            
+            <!-- 리뷰 작성 폼 -->
+            <div class="write-review">
+                <h3>리뷰 작성하기</h3>
+                <form id="review-form">
+                    <div class="rating-select">
+                        <label>평점:</label>
+                        <div class="star-rating">
+                            <input type="radio" id="star5" name="rating" value="5" checked>
+                            <label for="star5">★</label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4">★</label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3">★</label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2">★</label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1">★</label>
+                        </div>
+                    </div>
+                    <textarea name="review-text" placeholder="리뷰를 작성해주세요..." required></textarea>
+                    <button type="submit" class="cta-button">리뷰 등록</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>장난감 원더랜드</h3>
+                <p>아이들과 수집가를 위한 마법 같은 장난감 쇼핑몰</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">FB</a>
+                    <a href="#" class="social-icon">IG</a>
+                    <a href="#" class="social-icon">TW</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>바로가기</h3>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="products.html">상품</a></li>
+                    <li><a href="cart.html">장바구니</a></li>
+                    <li><a href="account.html">내 계정</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>고객 서비스</h3>
+                <ul>
+                    <li><a href="#">배송 정보</a></li>
+                    <li><a href="#">환불 정책</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">문의하기</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 장난감 원더랜드. 모든 권리 보유.</p>
+        </div>
+    </footer>
+
+    <!-- 여러 애니메이션 요소들 -->
+    <div class="cursor-follower"></div>
+    
+    <script>
+        // 리뷰 폼 제출 처리
+        document.getElementById('review-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 리뷰 작성은 로그인 확인
+            if (!isLoggedIn()) {
+                alert('리뷰를 작성하려면 로그인이 필요합니다.');
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            const rating = document.querySelector('input[name="rating"]:checked').value;
+            const reviewText = document.querySelector('textarea[name="review-text"]').value;
+            
+            // 리뷰 저장 (실제로는 서버에 저장해야 함)
+            alert('리뷰가 등록되었습니다. 감사합니다!');
+            
+            // 폼 초기화
+            this.reset();
+            
+            // 페이지 새로고침하여 새 리뷰 표시 (실제 구현에서는 동적으로 추가)
+            window.location.reload();
+        });
+        
+        // 별점 선택 시각적 효과
+        const starLabels = document.querySelectorAll('.star-rating label');
+        starLabels.forEach((label, index) => {
+            label.addEventListener('mouseenter', () => {
+                for (let i = 0; i <= index; i++) {
+                    starLabels[i].classList.add('hover');
+                }
+            });
+            
+            label.addEventListener('mouseleave', () => {
+                starLabels.forEach(l => l.classList.remove('hover'));
+            });
+        });
+    </script>
+</body>
+</html>

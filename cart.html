@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니 - 장난감 원더랜드</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/products.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/user.js" defer></script>
+</head>
+<body>
+    <div class="confetti-container"></div>
+    
+    <!-- 헤더 -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">🧸</div>
+            <h1 class="site-title">장난감 원더랜드</h1>
+        </div>
+        
+        <nav>
+            <ul class="main-nav">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="products.html">상품</a></li>
+                <li><a href="cart.html" class="active">장바구니 <span class="cart-count">0</span></a></li>
+                <li><a href="login.html" id="login-link">로그인</a></li>
+                <li><a href="account.html" id="account-link" style="display: none;">내 계정</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 장바구니 내용 -->
+    <main class="cart-page">
+        <h1>장바구니</h1>
+        
+        <div class="cart-container">
+            <div class="cart-items">
+                <!-- 장바구니 상품들이 여기에 동적으로 표시됩니다 -->
+            </div>
+            
+            <div class="cart-summary">
+                <!-- 장바구니 요약 정보가 여기에 동적으로 표시됩니다 -->
+            </div>
+        </div>
+    </main>
+
+    <!-- 추천 상품 섹션 -->
+    <section class="recommended-for-you">
+        <h2>함께 구매하면 좋은 상품</h2>
+        <div class="product-carousel">
+            <div class="product-container">
+                <!-- 추천 상품들은 JavaScript로 동적 생성 -->
+            </div>
+            <button class="carousel-nav prev">◀</button>
+            <button class="carousel-nav next">▶</button>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>장난감 원더랜드</h3>
+                <p>아이들과 수집가를 위한 마법 같은 장난감 쇼핑몰</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">FB</a>
+                    <a href="#" class="social-icon">IG</a>
+                    <a href="#" class="social-icon">TW</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>바로가기</h3>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="products.html">상품</a></li>
+                    <li><a href="cart.html">장바구니</a></li>
+                    <li><a href="account.html">내 계정</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>고객 서비스</h3>
+                <ul>
+                    <li><a href="#">배송 정보</a></li>
+                    <li><a href="#">환불 정책</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">문의하기</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 장난감 원더랜드. 모든 권리 보유.</p>
+        </div>
+    </footer>
+
+    <!-- 여러 애니메이션 요소들 -->
+    <div class="cursor-follower"></div>
+</body>
+</html>
